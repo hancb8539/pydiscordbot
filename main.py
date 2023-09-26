@@ -5,13 +5,14 @@ import pygsheets
 import os
 
 my_token = os.environ['token']
+my_excel = os.environ['excel']
 
 intents = discord.Intents.all()
 
 bot = commands.Bot(command_prefix="!", intents = intents)
 
 gc = pygsheets.authorize(service_account_file='credentials.json')
-survey_url = 'https://docs.google.com/spreadsheets/d/1Vz33H7t4555XJWnm8GsJgt9UqV4N55RdylpGIUBxlSk/'
+survey_url = my_excel
 sh = gc.open_by_url(survey_url)
 sheet_test01 = sh.worksheet_by_title("test1")
 sheet_test02 = sh.sheet1
